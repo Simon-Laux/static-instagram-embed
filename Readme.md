@@ -4,10 +4,10 @@ This project has 2 parts, one python script that downloads/updates the data, and
 
 ## Embed Web component into your website
 
-download `open-instagram-embed.js` from the releases.
+download [`open-instagram-embed.min.js`](https://raw.githubusercontent.com/Simon-Laux/static-instagram-embed/blob/main/open-instagram-embed.min.js).
 
 ```html
-<script src="open-instagram-embed.js"></script>
+<script type="module" src="open-instagram-embed.min.js"></script>
 
 <open-instagram-embed
   datasource="url-to/insta-data"
