@@ -44,7 +44,7 @@ def update(login_user, target_profile: str, post_count):
         thumbnail_image = None
         for file in os.listdir(target_dir):
             if file.endswith("UTC_1.jpg") or file.endswith("UTC.jpg"):
-                thumbnail_image = file
+                thumbnail_image = shortcode + "/" + file
                 break
 
         items.append(dict(
