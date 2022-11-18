@@ -81,7 +81,7 @@ open-instagram-embed>div>a.open-instagram-embed-post>div.open-instagram-embed-po
     padding-left: 0px
 }
 
-open-instagram-embed>div>a.open-instagram-embed-post>div.open-instagram-embed-post-hover-overlay .icon {
+open-instagram-embed>div>a.open-instagram-embed-post>div.open-instagram-embed-post-hover-overlay .open-instagram-embed-icon {
     width: 40px;
     height: 40px;
     filter: invert()

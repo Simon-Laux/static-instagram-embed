@@ -63,3 +63,17 @@ Options:
   --post-count INTEGER   How many posts to download, default is 3
   --help                 Show this message and exit.
 ```
+
+
+## Thanks to
+
+### instaloader for fetching the data from instagram
+https://github.com/instaloader/instaloader
+
+### Fontawesome for the icons
+Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - 
+            https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code:
+             MIT License) Copyright 2022 Fonticons, Inc.
+
+### Stencil for making Webcomponents easy
+https://stenciljs.com/
