@@ -1,0 +1,88 @@
+open-instagram-embed {
+    --size: 414px;
+}
+
+
+open-instagram-embed>div.open-instagram-embed-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+open-instagram-embed>div>a.open-instagram-embed-post, open-instagram-embed>div>.open-instagram-embed-loading-post {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    width: var(--size);
+    height: var(--size);
+    background-size: cover;
+    position: relative;
+}
+
+open-instagram-embed>div>.open-instagram-embed-loading-post {
+    background-color: lightgray;
+    background: linear-gradient(58deg, rgba(22,22,22,1) 0%, rgba(50,50,50,1) 59%, rgba(59,59,59,1) 65%, rgba(38,38,38,1) 73%, rgba(43,43,43,1) 100%);
+    background-size: 400% 400%;
+}
+
+
+open-instagram-embed>div a.open-instagram-embed-post .open-instagram-embed-post-type-icon {
+    width: 40px;
+    height: 40px;
+    filter: invert();
+    opacity: 1;
+    position: absolute;
+    right: 10px;
+    top: 10px
+}
+
+open-instagram-embed>div>a.open-instagram-embed-post>div.open-instagram-embed-post-hover-bg {
+    position: absolute;
+    opacity: 0;
+    background-color: #000;
+    width: 100%;
+    height: 100%
+}
+
+
+open-instagram-embed>div>a.open-instagram-embed-post:hover>div.open-instagram-embed-post-hover-overlay {
+    opacity: 1;
+    transition: 150ms opacity ease-in-out;
+    display: flex;
+    justify-content: center
+}
+
+open-instagram-embed>div>a.open-instagram-embed-post:hover>div.open-instagram-embed-post-hover-overlay>div.open-instagram-embed-post-hover-overlay-details {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 50%
+}
+
+open-instagram-embed>div>a.open-instagram-embed-post:hover>div.open-instagram-embed-post-hover-bg {
+    opacity: .3;
+    transition: 150ms opacity ease-in-out
+}
+
+open-instagram-embed>div>a.open-instagram-embed-post>div.open-instagram-embed-post-hover-overlay {
+    z-index: 2;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-weight: 700
+}
+
+open-instagram-embed>div>a.open-instagram-embed-post>div.open-instagram-embed-post-hover-overlay>div.open-instagram-embed-post-hover-overlay-details>p {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    padding-left: 0px
+}
+
+open-instagram-embed>div>a.open-instagram-embed-post>div.open-instagram-embed-post-hover-overlay .icon {
+    width: 40px;
+    height: 40px;
+    filter: invert()
+}

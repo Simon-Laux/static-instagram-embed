@@ -6,32 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface OpenInstagramEmbed {
         "count": number;
         "datasource": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLOpenInstagramEmbedElement extends Components.OpenInstagramEmbed, HTMLStencilElement {
     }
     var HTMLOpenInstagramEmbedElement: {
@@ -39,31 +19,15 @@ declare global {
         new (): HTMLOpenInstagramEmbedElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "open-instagram-embed": HTMLOpenInstagramEmbedElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface OpenInstagramEmbed {
         "count"?: number;
         "datasource"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "open-instagram-embed": OpenInstagramEmbed;
     }
 }
@@ -71,7 +35,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "open-instagram-embed": LocalJSX.OpenInstagramEmbed & JSXBase.HTMLAttributes<HTMLOpenInstagramEmbedElement>;
         }
     }

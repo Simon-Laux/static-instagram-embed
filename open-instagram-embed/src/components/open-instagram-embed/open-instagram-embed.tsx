@@ -1,4 +1,4 @@
-import { Component, Prop, State, h } from '@stencil/core';
+import { Component, Prop, State, h, Watch, Host } from '@stencil/core';
 
 type Post = {
   shortcode: string,
@@ -11,6 +11,7 @@ type Post = {
 
 @Component({
   tag: 'open-instagram-embed',
+  styleUrl: 'open-instagram-embed.css',
 })
 export class OpenInstagramEmbed {
   @Prop() datasource: string;
@@ -34,45 +35,62 @@ export class OpenInstagramEmbed {
     }
   }
 
+  @Watch('datasource')
+  watchPropHandler(newValue: string, oldValue: string) {
+    if (newValue !== oldValue) {
+      this.load()
+    }
+  }
+
   connectedCallback() {
     this.load()
   }
 
   render() {
     if (this.error) {
-      return <div>
-        {this.error && <span>An error occured while loading dat from "{this.datasource}": {this.error}</span>}
-        {
-          Array(this.count).map(_ => {
-            <div class="open-instagram-embed-loading-post"></div>
-          })
-        }
-      </div>
+      return <Host>
+        {this.error && <span>An error occured while loading data from "{this.datasource}": {this.error}</span>}
+        
+        <div class="open-instagram-embed-grid">
+          {
+            new Array(this.count).fill(0).map(_ => {
+             return <div class="open-instagram-embed-loading-post"></div>
+            })
+          }
+        </div>
+      </Host>
     } else if (this.data) {
       const base_dir = this.datasource.endsWith("/") ? this.datasource : this.datasource + "/"
 
-      return <div>
+      return <Host>
+        <div class="open-instagram-embed-grid">
         {
           this.data.slice(0, this.count).map(post => {
-            return <div class="open-instagram-embed-post" style={{ "background-image": `url('${base_dir + post.thumbnail_image}')` }}>
-              <span>{post.type}</span>
+            const link = `https://www.instagram.com/p/${post.shortcode}`
+            return <a class="open-instagram-embed-post" style={{ "background-image": `url('${base_dir + post.thumbnail_image}')` }} href={link}>
+              <span class="open-instagram-embed-post-type-icon">{post.type}</span>
               <div class="open-instagram-embed-post-hover-bg"></div>
               <div class="open-instagram-embed-post-hover-overlay">
-                Likes: {post.likes} Views: {post.views} Comments: {post.comments}
+                <div class="open-instagram-embed-post-hover-overlay-details">
+                  Likes: {post.likes} Views: {post.views} Comments: {post.comments}
+                </div>
               </div>
-            </div>
+            </a>
           })
         }
-      </div>
+        </div>
+      </Host>
     } else {
       // is Loading
-      return <div>
+      return <Host>
+        <div class="open-instagram-embed-grid">
         {
           Array(this.count).map(_ => {
-            <div class="open-instagram-embed-loading-post"></div>
+            return <div class="open-instagram-embed-loading-post"></div>
           })
         }
-      </div>
+        </div>
+      </Host>
     }
   }
 }
